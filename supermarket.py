@@ -574,7 +574,8 @@ def open_billing():
                 return
             cart.append((product, quantity))
             subtotal = product[2] * quantity
-            bill_area.insert(tk.END, f"{product[1]} x {quantity} = ₹{subtotal}\n")
+            status = get_expiry_status(product_id)
+			bill_area.insert(tk.END, f"{product[1]} x {quantity} = ₹{subtotal}    [{status}]\n")
             entry_id.delete(0, tk.END)
             entry_quantity.delete(0, tk.END)
         except ValueError:
