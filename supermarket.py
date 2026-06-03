@@ -21,8 +21,8 @@ while True:
         c = database.cursor()
         print(" Database connected successfully")
         break
-    except mysql.connector.Error:
-        print(" Unable to connect to the database.")
+    except mysql.connector.Error as e:
+		messagebox.showerror("Database Error", f"Unable to connect to the database\n\n{e}")
         x = ""
         while x not in ["YES", "NO"]:
             x = input("Do you want to try again (YES/NO) : ").upper().strip()
